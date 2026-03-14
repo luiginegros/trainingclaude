@@ -1111,7 +1111,7 @@ def run_agent(task):
         # GUARD 4: Budget — prevent runaway costs
         if total_cost > MAX_BUDGET:
             log_step(step, "BUDGET_EXCEEDED", {"cost": total_cost, "limit": MAX_BUDGET})
-            return f"Error: Budget exceeded (${total_cost:.4f} > ${MAX_BUDGET})"
+            return f"Error: Budget exceeded ({total_cost:.4f} > {MAX_BUDGET})"
 
         try:
             response = client.messages.create(
@@ -1131,12 +1131,12 @@ def run_agent(task):
         log_step(step, "API_RESPONSE", {
             "stop_reason": response.stop_reason,
             "tokens": response.usage.input_tokens + response.usage.output_tokens,
-            "step_cost": f"${step_cost:.4f}",
-            "total_cost": f"${total_cost:.4f}"
+            "step_cost": f"{step_cost:.4f}",
+            "total_cost": f"{total_cost:.4f}"
         })
 
         if response.stop_reason == "end_turn":
-            log_step(step, "TASK_COMPLETE", {"total_steps": step, "total_cost": f"${total_cost:.4f}"})
+            log_step(step, "TASK_COMPLETE", {"total_steps": step, "total_cost": f"{total_cost:.4f}"})
             return response.content[0].text
 
         elif response.stop_reason == "tool_use":
@@ -1399,7 +1399,7 @@ async def specialist_worker(name, system_prompt, task):
             messages=[{"role": "user", "content": task}]
         )
         cost = track_cost(response.usage)
-        log(name, "COMPLETE", f"Cost: ${cost:.4f}")
+        log(name, "COMPLETE", f"Cost: {cost:.4f}")
         return response.content[0].text
     except Exception as e:
         log(name, "ERROR", str(e))
@@ -1432,7 +1432,7 @@ Respond ONLY with JSON: {"approved": true, "feedback": "..."} or {"approved": fa
     )
 
     cost = track_cost(response.usage)
-    log("REVIEWER", "COMPLETE", f"Cost: ${cost:.4f}")
+    log("REVIEWER", "COMPLETE", f"Cost: {cost:.4f}")
 
     # Parse the review result
     try:
@@ -1504,7 +1504,7 @@ async def orchestrator(task):
 
         if review["approved"]:
             log("ORCHESTRATOR", "TASK_COMPLETE",
-                f"Total cost: ${total_cost:.4f} | Approved on attempt {attempt + 1}")
+                f"Total cost: {total_cost:.4f} | Approved on attempt {attempt + 1}")
             return combined
         else:
             # If not approved, ask a synthesis agent to fix the issues
@@ -1533,7 +1533,7 @@ if __name__ == "__main__":
     print("\\n" + "="*60)
     print(result)
     print("="*60)
-    print(f"Total estimated cost: ${total_cost:.4f}")`,
+    print(f"Total estimated cost: {total_cost:.4f}")`,
   exercise:`<p>It's time to build it. Take the capstone code and <strong>run it locally</strong> (you'll need your Anthropic API key set as ANTHROPIC_API_KEY).</p>
 <p>If you can't run it, walk through the code and answer:</p>
 <ol style="margin:12px 0 12px 20px;color:var(--text2)">
