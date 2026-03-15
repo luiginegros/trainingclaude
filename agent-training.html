@@ -142,6 +142,19 @@ pre.code-block code{font-family:var(--mono);font-size:.82rem;line-height:1.7}
 .exercise-area textarea{width:100%;min-height:200px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-family:var(--mono);font-size:.85rem;resize:vertical;transition:border-color .2s}
 .exercise-area textarea:focus{border-color:var(--purple)}
 
+.exercise-goal{background:var(--teal-dim);border:1px solid rgba(20,184,166,.2);border-radius:8px;padding:14px 18px;margin:16px 0;font-size:.93rem;color:var(--teal2)}
+.prompt-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);margin:14px 0;overflow:hidden;transition:border-color .2s}
+.prompt-card:hover{border-color:var(--purple)}
+.prompt-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border)}
+.prompt-step{font-weight:600;font-size:.85rem;color:var(--purple2)}
+.prompt-text{padding:16px;margin:0;font-family:var(--mono);font-size:.82rem;line-height:1.7;color:var(--text);white-space:pre-wrap;word-break:break-word}
+.expected-result{background:var(--green-dim);border:1px solid rgba(34,197,94,.2);border-radius:8px;padding:14px 18px;margin:20px 0;font-size:.88rem;color:var(--green)}
+.checklist-container{display:flex;flex-direction:column;gap:8px}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .2s;font-size:.9rem;color:var(--text2)}
+.check-item:hover{border-color:var(--purple)}
+.check-item.checked{border-color:var(--green);background:var(--green-dim);color:var(--green)}
+.check-item input[type="checkbox"]{margin-top:3px;accent-color:var(--green);width:16px;height:16px;flex-shrink:0;cursor:pointer}
+
 .quiz-section .quiz-q{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
 .quiz-q h4{font-size:.95rem;font-weight:600;margin-bottom:12px}
 .quiz-option{display:block;padding:10px 14px;margin-bottom:6px;background:var(--bg);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .2s;font-size:.88rem;color:var(--text2)}
@@ -217,6 +230,49 @@ pre.code-block code{font-family:var(--mono);font-size:.82rem;line-height:1.7}
 #mobile-nav button svg{width:20px;height:20px}
 .menu-toggle{display:none;position:fixed;top:16px;right:16px;z-index:101;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px;color:var(--text)}
 @media(max-width:768px){.menu-toggle{display:block}}
+
+/* GRADUATION MODAL */
+#graduation.hidden{display:none!important}
+
+/* SETUP GUIDE */
+#setupGuide.hidden{display:none!important}
+#setupGuide{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center}
+.setup-overlay{position:absolute;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center}
+.setup-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:36px 40px;max-width:640px;width:92%;max-height:88vh;overflow-y:auto;animation:fadeUp .5s ease;position:relative;z-index:1}
+.setup-badge{font-family:var(--mono);font-size:.7rem;letter-spacing:2px;color:var(--teal);background:var(--teal-dim);display:inline-block;padding:4px 12px;border-radius:4px;margin-bottom:14px}
+.setup-title{font-size:1.6rem;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,var(--purple),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.setup-intro{color:var(--text2);font-size:.92rem;margin-bottom:24px;line-height:1.6}
+.setup-steps{display:flex;flex-direction:column;gap:18px;margin-bottom:24px}
+.setup-step{display:flex;gap:14px;align-items:flex-start}
+.setup-step-num{width:32px;height:32px;border-radius:50%;background:var(--purple-dim);color:var(--purple2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;border:1px solid rgba(139,92,246,.3)}
+.setup-step-body{flex:1}
+.setup-step-body h3{font-size:.95rem;font-weight:700;margin-bottom:4px}
+.setup-step-body p{font-size:.85rem;color:var(--text2);margin-bottom:6px;line-height:1.5}
+.setup-step-body a{color:var(--teal2);text-decoration:underline;text-underline-offset:2px}
+.setup-code{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-family:var(--mono);font-size:.78rem;line-height:1.6;color:var(--text);margin:6px 0 8px;overflow-x:auto;white-space:pre-wrap;word-break:break-all}
+.setup-options{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.setup-link{display:block;padding:8px 14px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:.85rem;font-weight:600;color:var(--purple2);transition:all .2s}
+.setup-link:hover{border-color:var(--purple);background:var(--purple-dim)}
+.setup-link span{font-weight:400;color:var(--text3);font-size:.8rem}
+.setup-note{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:20px;font-size:.84rem;color:var(--text2);line-height:1.6}
+.setup-done-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--purple),#6d28d9);color:#fff;font-weight:600;font-size:1rem;border-radius:var(--radius);cursor:pointer;border:none;transition:all .3s;margin-bottom:8px}
+.setup-done-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px var(--purple-glow)}
+.setup-skip-btn{width:100%;padding:10px;background:transparent;color:var(--text3);font-size:.82rem;cursor:pointer;border:none;transition:color .2s}
+.setup-skip-btn:hover{color:var(--text2)}
+.grad-card{background:var(--bg2);border:1px solid var(--purple);border-radius:20px;padding:48px 40px;text-align:center;max-width:560px;width:92%;animation:fadeUp .6s ease;box-shadow:0 0 60px var(--purple-glow),0 0 120px rgba(139,92,246,.1)}
+.grad-stars{font-size:2rem;color:var(--yellow);margin-bottom:12px;letter-spacing:12px;animation:fadeUp .8s ease}
+.grad-title{font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--purple),var(--teal),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.grad-name{font-size:1.3rem;font-weight:700;color:var(--purple2);margin-bottom:4px}
+.grad-subtitle{color:var(--text2);font-size:.95rem;margin-bottom:20px;line-height:1.6}
+.grad-quote{background:var(--bg3);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:14px 18px;margin:0 auto 24px;max-width:420px;color:var(--teal2);font-style:italic;font-size:.9rem;line-height:1.6}
+.grad-stats{display:flex;justify-content:center;gap:32px;margin-bottom:28px}
+.grad-stats>div{display:flex;flex-direction:column;align-items:center}
+.grad-stat-num{font-family:var(--mono);font-weight:800;font-size:1.3rem;color:var(--text)}
+.grad-stat-label{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.grad-btn{padding:12px 28px;background:linear-gradient(135deg,var(--purple),#6d28d9);color:#fff;font-weight:600;font-size:.95rem;border-radius:var(--radius);transition:all .3s;cursor:pointer;border:none}
+.grad-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px var(--purple-glow)}
+.grad-btn.secondary{background:transparent;border:1px solid var(--border2);color:var(--text2)}
+.grad-btn.secondary:hover{border-color:var(--purple);color:var(--text);box-shadow:none}
 </style>
 </head>
 <body>
@@ -228,6 +284,89 @@ pre.code-block code{font-family:var(--mono);font-size:.82rem;line-height:1.7}
 <p>Welcome, recruit. Enter your name to begin your training in AI agent architecture.</p>
 <input type="text" id="nameInput" placeholder="Your name, agent..." maxlength="30" autofocus>
 <button onclick="setName()">Initiate Training</button>
+</div>
+</div>
+
+<!-- SETUP GUIDE -->
+<div id="setupGuide" class="hidden">
+<div class="setup-overlay">
+<div class="setup-card">
+<div class="setup-badge">⚙️ SETUP REQUIRED</div>
+<h1 class="setup-title">Quick Setup Guide</h1>
+<p class="setup-intro">Before you start, you'll need a few things installed on your machine. The hands-on labs require you to <strong>paste prompts into Claude</strong> and <strong>run Python code locally</strong>.</p>
+
+<div class="setup-steps">
+
+<div class="setup-step">
+<div class="setup-step-num">1</div>
+<div class="setup-step-body">
+<h3>Get access to Claude</h3>
+<p>You'll need Claude to complete the interactive labs. Choose one:</p>
+<div class="setup-options">
+<a href="https://claude.ai" target="_blank" class="setup-link">claude.ai <span>— free tier available, paste prompts here</span></a>
+<a href="https://console.anthropic.com" target="_blank" class="setup-link">Anthropic Console <span>— for API access and coding exercises</span></a>
+</div>
+</div>
+</div>
+
+<div class="setup-step">
+<div class="setup-step-num">2</div>
+<div class="setup-step-body">
+<h3>Install Python (3.10+)</h3>
+<p>The code examples use Python. Check if you have it:</p>
+<pre class="setup-code">python3 --version</pre>
+<p>If not installed: <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></p>
+</div>
+</div>
+
+<div class="setup-step">
+<div class="setup-step-num">3</div>
+<div class="setup-step-body">
+<h3>Install the Anthropic SDK</h3>
+<p>This is the Python library to call the Claude API:</p>
+<pre class="setup-code">pip install anthropic</pre>
+</div>
+</div>
+
+<div class="setup-step">
+<div class="setup-step-num">4</div>
+<div class="setup-step-body">
+<h3>Get your API key</h3>
+<p>Create one at <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com/settings/keys</a>, then set it:</p>
+<pre class="setup-code"># Mac / Linux
+export ANTHROPIC_API_KEY="sk-ant-..."
+
+# Windows (PowerShell)
+$env:ANTHROPIC_API_KEY="sk-ant-..."</pre>
+</div>
+</div>
+
+<div class="setup-step">
+<div class="setup-step-num">5</div>
+<div class="setup-step-body">
+<h3>Verify it works</h3>
+<p>Run this quick test in Python:</p>
+<pre class="setup-code">import anthropic
+client = anthropic.Anthropic()
+msg = client.messages.create(
+    model="claude-sonnet-4-20250514",
+    max_tokens=100,
+    messages=[{"role": "user", "content": "Say hello!"}]
+)
+print(msg.content[0].text)</pre>
+<p>If you see Claude's response, you're ready!</p>
+</div>
+</div>
+
+</div>
+
+<div class="setup-note">
+<strong>💡 Note:</strong> For the first few pillars, you only need claude.ai — just paste the lab prompts and follow along. The API + Python setup becomes essential from Pillar 2 onwards when you start building real agent loops.
+</div>
+
+<button class="setup-done-btn" onclick="completeSetup()">✓ I'm set up — let's start training</button>
+<button class="setup-skip-btn" onclick="completeSetup()">Skip for now — I'll set up later</button>
+</div>
 </div>
 </div>
 
@@ -343,6 +482,27 @@ Settings
 </div>
 </div>
 
+<!-- GRADUATION MODAL -->
+<div id="graduation" class="hidden" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.9);backdrop-filter:blur(12px)">
+<div class="grad-card">
+<div class="grad-stars">★ ★ ★</div>
+<h1 class="grad-title">Mission Complete</h1>
+<p class="grad-name" id="gradName"></p>
+<p class="grad-subtitle">You have completed all 9 pillars of the<br><strong>Master of Agents Training Program</strong></p>
+<div class="grad-quote" id="gradQuote"></div>
+<div class="grad-stats">
+<div><span class="grad-stat-num">9/9</span><span class="grad-stat-label">Pillars</span></div>
+<div><span class="grad-stat-num" id="gradXP">0</span><span class="grad-stat-label">Total XP</span></div>
+<div><span class="grad-stat-num">Architect</span><span class="grad-stat-label">Rank</span></div>
+</div>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<button class="grad-btn" onclick="downloadCertificate()">⬇ Download Certificate</button>
+<button class="grad-btn secondary" onclick="document.getElementById('graduation').classList.add('hidden')">Return to Console</button>
+</div>
+</div>
+</div>
+<canvas id="certCanvas" width="1400" height="900" style="display:none"></canvas>
+
 </div>
 
 <script>
@@ -450,12 +610,16 @@ while True:
             ]
         })
         # Loop continues — Claude will think again with the new info`,
-  exercise:`<p>Write in your own words:</p>
-<ol style="margin:12px 0 12px 20px;color:var(--text2)">
-<li>Describe <strong>one task from real life</strong> that NEEDS an agent (multiple steps, tool use, decisions). Explain WHY a plain LLM can't handle it alone.</li>
-<li>Describe <strong>one task</strong> that does NOT need an agent — a simple LLM call is enough. Explain WHY.</li>
-</ol>
-<p>Be specific. Use real examples, not abstract ones.</p>`,
+  exercise:{
+    goal:"See the difference between a plain LLM call and an agent by running both side by side.",
+    prompts:[
+      {title:"Step 1 — Plain LLM call (paste this into Claude)",text:"Answer this question in one response: What are the top 3 trending GitHub repositories right now?\n\n(Notice: Claude will answer from memory, but it can't actually check GitHub live. The answer may be outdated or guessed.)"},
+      {title:"Step 2 — Agent-style thinking (paste this into Claude)",text:"I want you to act as an agent. Your task: find the top 3 trending GitHub repositories.\n\nThink step by step:\n1. What tools would you need to complete this task?\n2. What would your first action be?\n3. After getting results, what would you check before giving a final answer?\n4. Write out the full Think → Act → Observe loop for this task.\n\nDon't make up data. Describe the PROCESS you would follow if you had the tools."},
+      {title:"Step 3 — Compare (paste this into Claude)",text:"Compare these two approaches:\n1. A plain LLM answering 'what are the trending GitHub repos' from memory\n2. An agent with a 'search_github_trending' tool doing the same task\n\nFor each, explain: What can go wrong? Which gives more reliable results? Why?"}
+    ],
+    expected:"You should see that the plain call gives a best-guess answer (possibly wrong), while the agent approach describes a structured process with tool use that would give real-time accurate data.",
+    checklist:["I ran the plain LLM call and saw it answer from memory","I ran the agent-style prompt and saw it describe the Think → Act → Observe process","I understand why the agent approach gives more reliable results","I can explain when a plain LLM is sufficient vs when you need an agent"]
+  },
   quiz:[
     {q:"What is an AI agent?",opts:["A chatbot that answers questions","An LLM that operates in a loop and can use tools","A database that stores AI knowledge","A fine-tuned language model"],correct:1},
     {q:"What is the key difference between a plain LLM call and an agent?",opts:["Agents use bigger models","Agents can loop, use tools, and take actions","Agents are always faster","Agents don't need an API key"],correct:1},
@@ -584,16 +748,16 @@ while True:
         # Loop continues — Claude will see the tool result and decide next step
 
 print("=== AGENT LOOP END ===")`,
-  exercise:`<p>Trace through the agent loop <strong>on paper</strong> for this task: a user asks <em>"What is the capital of France?"</em></p>
-<p>Write out each step:</p>
-<ol style="margin:12px 0 12px 20px;color:var(--text2)">
-<li><strong>Step 1 — Think:</strong> What does Claude see? What does it decide?</li>
-<li><strong>Step 1 — Act:</strong> What tool does it call? With what input?</li>
-<li><strong>Step 1 — Observe:</strong> What result comes back?</li>
-<li><strong>Step 2 — Think:</strong> Now Claude sees the tool result. What does it decide?</li>
-<li><strong>Step 2 — Final answer:</strong> What does Claude output? What is stop_reason?</li>
-</ol>
-<p>Write the full trace. Include the stop_reason at each step.</p>`,
+  exercise:{
+    goal:"Build a working agent loop by asking Claude to generate it, then trace through the execution step by step.",
+    prompts:[
+      {title:"Step 1 — Generate the agent (paste into Claude)",text:"Write me a complete Python agent using the Anthropic SDK that:\n1. Has one tool called 'lookup_capital' that takes a country name\n2. Runs in a while loop checking stop_reason\n3. Handles both 'end_turn' and 'tool_use' stop reasons\n4. Prints each step: what Claude decided, which tool was called, what the result was\n\nUse a fake execute_tool function that returns hardcoded capitals. Add a comment on every important line explaining what it does."},
+      {title:"Step 2 — Trace the execution (paste into Claude)",text:"Trace through this agent loop step by step for the task 'What is the capital of Japan?':\n\nStep 1 - THINK: What does Claude see in the messages? What does it decide?\nStep 1 - ACT: What tool_use block does it produce? Show the JSON.\nStep 1 - OBSERVE: What tool_result is sent back? Show the message structure.\nStep 2 - THINK: Claude now sees the tool result. What is its stop_reason?\nStep 2 - OUTPUT: What final text does Claude return?\n\nShow the exact messages list at each step — I want to see how it grows."},
+      {title:"Step 3 — Break it on purpose (paste into Claude)",text:"Take the agent loop code from Step 1 and show me what happens if:\n1. I forget to append the assistant message before the tool_result\n2. I set max_tokens to 5 (too low)\n3. The tool returns an error string instead of a valid result\n\nFor each scenario, explain what error or behavior I would see and why."}
+    ],
+    expected:"You should have a complete agent loop, understand the exact message flow at each step, and know what breaks when the structure is wrong.",
+    checklist:["I generated a working agent loop with Claude and understand every line","I can trace the exact messages list as it grows through the loop","I understand what stop_reason='end_turn' vs 'tool_use' means in practice","I know what breaks when the message structure is wrong"]
+  },
   quiz:[
     {q:"What are the three phases of the agent loop?",opts:["Input → Process → Output","Think → Act → Observe","Prompt → Generate → Filter","Read → Write → Verify"],correct:1},
     {q:"What does stop_reason='tool_use' mean?",opts:["Claude is finished and gave a final answer","Claude encountered an error","Claude wants to call a tool — execute it and feed results back","Claude ran out of tokens"],correct:2},
@@ -724,13 +888,16 @@ while True:
 
         # Send ALL tool results back in one message
         messages.append({"role": "user", "content": tool_results})`,
-  exercise:`<p>Define a new tool in JSON Schema format for <strong>get_stock_price</strong>. This tool should:</p>
-<ul style="margin:12px 0 12px 20px;color:var(--text2)">
-<li>Accept a stock ticker symbol (required)</li>
-<li>Accept an optional currency parameter (default: USD)</li>
-<li>Have a clear description that tells Claude when to use it</li>
-</ul>
-<p>Write out the <strong>full JSON tool definition</strong> — the complete object with name, description, and input_schema. Don't write Python code — just the JSON schema.</p>`,
+  exercise:{
+    goal:"Define custom tools with proper JSON Schema and build a multi-tool agent.",
+    prompts:[
+      {title:"Step 1 — Build a tool definition (paste into Claude)",text:"Create a complete JSON tool definition for a tool called 'get_stock_price' that:\n- Takes a required 'ticker' parameter (string, e.g. 'AAPL')\n- Takes an optional 'currency' parameter (string, enum of 'USD', 'EUR', 'GBP', default USD)\n- Has a description clear enough that Claude knows when to use it\n\nShow me the complete JSON object with name, description, and input_schema. Then explain each field and why it matters."},
+      {title:"Step 2 — Multi-tool agent (paste into Claude)",text:"Write a Python agent using the Anthropic SDK with 3 tools:\n1. calculator — evaluates math expressions\n2. get_weather — takes a city name, returns weather\n3. get_stock_price — takes a ticker, returns price\n\nUse fake/stub implementations for each tool. Then show me what happens when a user asks: 'What is AAPL stock price times 2, and what is the weather in Cupertino?'\n\nClaude should call multiple tools. Show the full agent loop with prints at each step."},
+      {title:"Step 3 — Tool design challenge (paste into Claude)",text:"I want to build an agent that can manage my calendar. Design 4 tools it would need:\n- For each tool, write the complete JSON Schema definition\n- Explain what happens if I make the tool descriptions too vague\n- Show an example where Claude might pick the wrong tool and explain why\n\nFocus on making the descriptions precise enough that Claude always picks the right tool."}
+    ],
+    expected:"You should be able to write JSON Schema tool definitions from scratch, understand how description quality affects tool selection, and handle multi-tool responses.",
+    checklist:["I can write a complete tool definition with input_schema from scratch","I understand how Claude reads tool descriptions to decide which tool to call","I built a multi-tool agent that handles multiple tool calls in one response","I know common mistakes in tool definitions and how to avoid them"]
+  },
   quiz:[
     {q:"What three fields does a tool definition require?",opts:["name, type, parameters","name, description, input_schema","function, args, return_type","id, method, payload"],correct:1},
     {q:"How does Claude decide which tool to call?",opts:["Keyword matching against tool names","Random selection from available tools","Reasoning about tool descriptions and the user's request","It always calls all tools in order"],correct:2},
@@ -817,14 +984,16 @@ for msg in conversation_history:
     role = msg["role"].upper()
     text = msg["content"][:80] + "..." if len(msg["content"]) > 80 else msg["content"]
     print(f"  [{role}] {text}")`,
-  exercise:`<p>Take the agent from Pillar 2 (the capital-lookup agent) and <strong>add a memory component</strong>.</p>
-<p>Describe or draw (in text) a diagram that shows:</p>
-<ol style="margin:12px 0 12px 20px;color:var(--text2)">
-<li>Where does the conversation history list live in the code?</li>
-<li>When is a new message <strong>added</strong> to the list? (Be specific — which messages?)</li>
-<li>When is the list <strong>read</strong>? (At which point in the loop?)</li>
-<li>What would happen if you forgot to append the assistant message to the list?</li>
-</ol>`,
+  exercise:{
+    goal:"Build a multi-turn chatbot with conversation memory that actually remembers context across turns.",
+    prompts:[
+      {title:"Step 1 — Build the memory system (paste into Claude)",text:"Write a Python chatbot using the Anthropic SDK that:\n1. Maintains a conversation_history list\n2. Has a chat() function that appends user and assistant messages\n3. Sends the FULL history with every API call\n\nThen simulate this conversation:\n- User: 'My name is Alex and I work at a startup called NovaTech'\n- User: 'What tools should I build for my company?'\n- User: 'What was my name and company again?'\n\nShow the conversation_history list after each turn. I want to see it grow."},
+      {title:"Step 2 — Hit the limits (paste into Claude)",text:"Explain what happens to my chatbot from Step 1 in these scenarios:\n1. The conversation reaches 200,000 tokens — what breaks and how do I fix it?\n2. I want the bot to remember something from last week's conversation — how?\n3. During an agent loop, 5 tool calls each return 1000 words — where does that data live?\n\nFor each scenario, tell me which of the 4 memory types I need:\n- In-context (conversation history)\n- External (vector DB)\n- Scratchpad (tool outputs mid-task)\n- Persistent (database)\n\nGive concrete code examples for scenarios 1 and 2."},
+      {title:"Step 3 — Design a memory architecture (paste into Claude)",text:"Design the memory architecture for a customer support agent that:\n- Remembers each customer's past tickets (could be hundreds)\n- Keeps the current conversation in context\n- Stores tool results while investigating an issue\n- Remembers company-wide FAQ answers\n\nFor each need, specify: which memory type to use, where it lives (code variable, vector DB, SQL, etc.), when it's read, and when it's written. Draw an ASCII diagram of the architecture."}
+    ],
+    expected:"You should have a working multi-turn chatbot, understand context window limits, and know which memory type to use for different scenarios.",
+    checklist:["I built a chatbot that maintains conversation history across turns","I understand what happens when the context window fills up","I can identify which of the 4 memory types fits a given scenario","I can design a memory architecture for a real-world agent"]
+  },
   quiz:[
     {q:"Why do LLMs forget between API calls?",opts:["They have a memory limit bug","Each API call is stateless — no info carries over","They only remember the last 5 messages","The API resets their weights each time"],correct:1},
     {q:"What is in-context memory?",opts:["A vector database","Sending the full conversation history with each API call","A special memory parameter in the API","Fine-tuning the model on your data"],correct:1},
@@ -916,16 +1085,16 @@ def orchestrator(task):
 
 # Run the multi-agent system
 orchestrator("Research the history and current state of electric vehicles")`,
-  exercise:`<p>Design a <strong>3-agent system</strong> for this task: <em>"Research a company and write a one-page summary."</em></p>
-<p>For each agent, describe:</p>
-<ol style="margin:12px 0 12px 20px;color:var(--text2)">
-<li><strong>Agent name</strong> and role (e.g., "Research Agent — gathers company data")</li>
-<li><strong>What tools</strong> it needs (if any)</li>
-<li><strong>What input</strong> it receives</li>
-<li><strong>What output</strong> it produces</li>
-<li><strong>What it passes</strong> to the next agent</li>
-</ol>
-<p>Draw the flow: Agent 1 → Agent 2 → Agent 3 → Final Output.</p>`,
+  exercise:{
+    goal:"Build a working multi-agent system with an orchestrator and two worker agents.",
+    prompts:[
+      {title:"Step 1 — Build the orchestrator (paste into Claude)",text:"Write a Python multi-agent system using the Anthropic SDK with:\n1. An orchestrator function that receives a task and breaks it into 2 sub-tasks\n2. Two worker agent functions, each with its own system prompt\n3. The orchestrator calls each worker, collects results, and combines them\n\nTask to test: 'Research electric vehicles: their technology and their market impact'\n- Worker 1: Tech Researcher (system prompt focused on technical analysis)\n- Worker 2: Market Researcher (system prompt focused on business analysis)\n\nPrint every step: task received, sub-tasks created, each worker's output, final combined result.\nUse real Anthropic API calls (or show exactly what they would look like)."},
+      {title:"Step 2 — Add state sharing (paste into Claude)",text:"Modify the multi-agent system from Step 1 so that:\n1. Worker 1 (Tech Researcher) runs first\n2. Worker 2 (Market Researcher) receives Worker 1's output as additional context\n3. Worker 2 can reference tech findings when analyzing the market\n\nShow me the messages being passed between agents. I want to see exactly what Worker 2 receives as input.\n\nThen explain: when should workers run sequentially (like this) vs in parallel?"},
+      {title:"Step 3 — Design a 3-agent system (paste into Claude)",text:"Design a complete 3-agent system for this task: 'Research the company Tesla and write a one-page executive summary.'\n\nFor each agent provide:\n- Name and role\n- Complete system prompt (at least 5 lines)\n- What tools it would need\n- Input it receives\n- Output it produces\n- What gets passed to the next agent\n\nShow the full Python code structure with real Anthropic API calls. Draw the data flow: Agent 1 → Agent 2 → Agent 3 → Final Output."}
+    ],
+    expected:"You should have a working orchestrator/worker system, understand state passing between agents, and be able to design multi-agent architectures for real tasks.",
+    checklist:["I built an orchestrator that breaks tasks into sub-tasks and delegates to workers","I understand how to pass one worker's output as context to another","I can decide when workers should run sequentially vs in parallel","I designed a complete 3-agent system with clear roles and data flow"]
+  },
   quiz:[
     {q:"What is the role of an orchestrator agent?",opts:["It runs all the tools","It breaks a complex task into sub-tasks and delegates to workers","It stores the conversation history","It handles error logging"],correct:1},
     {q:"How do agents communicate in a multi-agent system?",opts:["Through a shared database automatically","The orchestrator passes information explicitly via messages","They share a context window","Through WebSocket connections"],correct:1},
@@ -1016,15 +1185,16 @@ async def orchestrator(task):
 
 # Run the parallel multi-agent system
 asyncio.run(orchestrator("autonomous vehicle technology in 2025"))`,
-  exercise:`<p>Take your 3-agent design from Pillar 5 and <strong>extend it with a review agent</strong>.</p>
-<p>Describe:</p>
-<ol style="margin:12px 0 12px 20px;color:var(--text2)">
-<li>What is the review agent's name and role?</li>
-<li>What does it receive as input? (The final summary from your previous design)</li>
-<li>What <strong>specific things</strong> does it check for? (List at least 3 quality checks)</li>
-<li>What does it do if it finds a problem? (Does it fix it? Send it back? Flag it?)</li>
-<li>What is the updated flow diagram? (Now 4 agents)</li>
-</ol>`,
+  exercise:{
+    goal:"Build a parallel fan-out system and add a review agent that checks quality before returning results.",
+    prompts:[
+      {title:"Step 1 — Parallel fan-out (paste into Claude)",text:"Write a Python multi-agent system using asyncio and the Anthropic AsyncAnthropic client that:\n1. Takes a research topic as input\n2. Launches 3 specialist workers IN PARALLEL using asyncio.gather()\n3. Each worker has a different focus: technical, market, and future trends\n4. The orchestrator waits for all 3, then combines results\n\nShow me the timing: print timestamps when each worker starts and finishes. I want to see they run simultaneously, not one after another.\n\nTest with: 'artificial intelligence in healthcare'"},
+      {title:"Step 2 — Add a review agent (paste into Claude)",text:"Take the parallel system from Step 1 and add a Review Agent that:\n1. Receives the combined output from all 3 workers\n2. Checks for: contradictions between sections, missing information, unclear writing\n3. Returns a JSON verdict: {approved: true/false, feedback: '...'}\n4. If not approved, the orchestrator sends the feedback back and regenerates\n5. Maximum 2 retry attempts\n\nShow the full code with the review loop. Print each review attempt and its verdict."},
+      {title:"Step 3 — Architecture decision (paste into Claude)",text:"I need to build an agent system that produces a weekly market report. The steps are:\n1. Gather data from 5 different sources\n2. Analyze each source independently\n3. Cross-reference findings between sources\n4. Write the final report\n5. Check for accuracy and bias\n\nDesign the architecture:\n- Which steps should run in parallel? Which must be sequential?\n- Where do I use specialist agents vs general ones?\n- Where does a review agent fit?\n- What are the trade-offs of my design?\n\nProvide the full architecture diagram and justify every decision."}
+    ],
+    expected:"You should have a working parallel system with asyncio, a review agent with retry logic, and the ability to design complex architectures with trade-off analysis.",
+    checklist:["I built a parallel fan-out system with asyncio.gather()","I added a review agent that checks output quality and can trigger retries","I understand when to use parallel vs sequential, specialist vs general agents","I can justify architectural decisions with trade-off analysis"]
+  },
   quiz:[
     {q:"What is 'parallel fan-out' in multi-agent systems?",opts:["Running agents one after another","Running multiple worker agents simultaneously","Sending the same task to the same agent multiple times","Splitting the model across multiple GPUs"],correct:1},
     {q:"What is the main benefit of specialist agents?",opts:["They use fewer tokens","Each agent is optimized for its specific domain with tailored prompts and tools","They automatically know when to run","They share memory automatically"],correct:1},
@@ -1167,12 +1337,16 @@ def run_agent(task):
 # Run the production agent
 result = run_agent("Find information about the latest Mars rover mission")
 print(f"\\nFinal Result: {result}")`,
-  exercise:`<p>Take the agent loop from Pillar 2 and add <strong>two production guards</strong>:</p>
-<ol style="margin:12px 0 12px 20px;color:var(--text2)">
-<li><strong>Max steps guard:</strong> Add a step counter. If the loop runs more than 5 times, break out and return an error message. Show the code or pseudocode.</li>
-<li><strong>Cost estimator:</strong> After each API call, estimate the cost using this formula: (input_tokens + output_tokens) / 1000 * $0.003. Track the running total. Print the cost at each step.</li>
-</ol>
-<p>Write the modified code or detailed pseudocode.</p>`,
+  exercise:{
+    goal:"Add production-grade guardrails to an agent: max steps, cost tracking, error handling, and logging.",
+    prompts:[
+      {title:"Step 1 — Add guardrails (paste into Claude)",text:"Take a basic agent loop with one tool (search_web) and add these production guards:\n1. MAX_STEPS = 5 — if the loop runs more than 5 times, force-stop and return an error\n2. Cost tracking — after each API call, calculate cost as (input_tokens + output_tokens) / 1000 * 0.003. Print running total.\n3. BUDGET_LIMIT = 0.50 — stop if total cost exceeds this\n4. try/except around every tool execution — never let a tool crash the agent\n5. A log() function that prints timestamp, step number, event type, and details for every action\n\nShow me the complete code. Then simulate what happens when:\n- The agent runs 6 steps (hits max_steps)\n- A tool throws an exception\n- The budget is exceeded"},
+      {title:"Step 2 — Handle real failures (paste into Claude)",text:"Show me Python code for handling these real production failures in an agent:\n1. The Anthropic API returns a 429 (rate limited) — implement exponential backoff with 3 retries\n2. Claude hallucinates a tool name that doesn't exist — validate before executing\n3. The context window is filling up (approaching 180k tokens) — implement a summarization strategy\n4. A tool returns valid JSON but with an 'error' field — detect and handle gracefully\n\nFor each, show the exact code with comments explaining the defensive strategy."},
+      {title:"Step 3 — Production audit (paste into Claude)",text:"Here's a basic agent loop. Find ALL the production problems and fix them:\n\nimport anthropic\nclient = anthropic.Anthropic()\nmessages = [{'role': 'user', 'content': 'Search for AI news'}]\nwhile True:\n    response = client.messages.create(model='claude-sonnet-4-20250514', max_tokens=1024, tools=tools, messages=messages)\n    if response.stop_reason == 'tool_use':\n        tool = response.content[0]\n        result = eval(tool.input['code'])\n        messages.append({'role': 'assistant', 'content': response.content})\n        messages.append({'role': 'user', 'content': [{'type': 'tool_result', 'tool_use_id': tool.id, 'content': result}]})\n    else:\n        print(response.content[0].text)\n        break\n\nList every issue, explain why it's dangerous, and show the fixed version."}
+    ],
+    expected:"You should be able to add all 5 production guards to any agent, handle real-world API failures, and audit existing agent code for production issues.",
+    checklist:["I added max_steps, cost tracking, and budget limits to an agent","I can handle API rate limits with exponential backoff","I can identify and fix production vulnerabilities in agent code","I understand logging and observability for debugging agent issues"]
+  },
   quiz:[
     {q:"What causes an infinite loop in an agent?",opts:["A bug in Python's while loop","The agent keeps calling tools without reaching a final answer","Too many tools defined","The API key expires"],correct:1},
     {q:"How do you prevent runaway costs in a production agent?",opts:["Use a cheaper model","Track token usage per step and set a budget limit","Reduce the max_tokens parameter to 10","Only run the agent once per day"],correct:1},
@@ -1301,17 +1475,16 @@ while True:
             "role": "user",
             "content": tool_results
         })`,
-  exercise:`<p>Here is a <strong>BAD system prompt</strong>:</p>
-<pre class="code-block"><code>"You are an AI. Help the user with whatever they want. Use tools if you need to."</code></pre>
-<p>Rewrite it into a <strong>GOOD system prompt</strong> for a <em>customer support agent</em> that:</p>
-<ol style="margin:12px 0 12px 20px;color:var(--text2)">
-<li>Has a clear <strong>role</strong> (who is the agent?)</li>
-<li>Has clear <strong>boundaries</strong> (what it should NOT do)</li>
-<li>Defines <strong>output format</strong> (how to structure the answer)</li>
-<li>Gives <strong>tool usage rules</strong> (when to use lookup tools vs answering directly)</li>
-<li>Specifies <strong>tone</strong> (professional? friendly? brief?)</li>
-</ol>
-<p>Write the complete system prompt — at least 8 lines.</p>`,
+  exercise:{
+    goal:"Master system prompt engineering and Claude-specific API patterns for agents.",
+    prompts:[
+      {title:"Step 1 — Fix a bad system prompt (paste into Claude)",text:"Here is a BAD system prompt for a customer support agent:\n\n'You are an AI. Help the user with whatever they want. Use tools if you need to.'\n\nRewrite it into a GREAT system prompt that includes:\n1. A specific role and persona (who is this agent?)\n2. Clear boundaries (what it must NOT do — e.g., no refunds over $500)\n3. Output format rules (how to structure responses)\n4. Tool usage guidelines (when to search the knowledge base vs answer directly)\n5. Escalation rules (when to hand off to a human)\n6. Tone definition (professional but warm)\n\nThe prompt should be at least 15 lines. Then explain WHY each section matters for agent behavior."},
+      {title:"Step 2 — Multi-turn tool use messages (paste into Claude)",text:"Show me the EXACT message structure for this scenario:\n1. User asks: 'What is the weather in Tokyo and the stock price of Sony?'\n2. Claude calls get_weather(city='Tokyo')\n3. Claude ALSO calls get_stock_price(ticker='6758.T') in the SAME response\n4. Both tool results come back\n5. Claude gives a final combined answer\n\nShow me the complete messages list at EACH step — every message object with role, content blocks, tool_use blocks, and tool_result blocks. I need to see the exact JSON structure.\n\nThen show what happens if I forget to include the tool_use_id in the tool_result."},
+      {title:"Step 3 — Build a complete Claude agent (paste into Claude)",text:"Build a complete production-ready agent in Python using the Anthropic SDK that:\n1. Has a well-crafted system prompt (at least 10 lines) for a research assistant role\n2. Has 2 tools: search_web and read_document\n3. Handles multi-turn tool use with correct message structure\n4. Includes all production guards from Pillar 7\n5. Uses proper error handling for tool_result messages\n\nThe code should be fully runnable (with stub tool implementations). Add a comment on every line that touches the API explaining the 'why' not just the 'what'.\n\nThen explain: what is MCP and how would it change the tool setup in this code?"}
+    ],
+    expected:"You should be able to write production-quality system prompts, construct correct multi-turn tool use message sequences, and build complete Claude agents.",
+    checklist:["I wrote a detailed system prompt with role, boundaries, format, and tool rules","I understand the exact message structure for multi-turn tool use","I can build a complete production agent with the Anthropic SDK","I can explain what MCP is and how it simplifies tool integration"]
+  },
   quiz:[
     {q:"What is the purpose of a system prompt in an agentic context?",opts:["To provide the user's question","To define the agent's role, rules, and behaviour across all turns","To store the conversation history","To configure the API key"],correct:1},
     {q:"What is MCP (Model Context Protocol)?",opts:["A new programming language for AI","A universal standard for connecting tools and data sources to AI agents","A method for compressing model weights","A metric for measuring Claude's performance"],correct:1},
@@ -1534,15 +1707,16 @@ if __name__ == "__main__":
     print(result)
     print("="*60)
     print(f"Total estimated cost: {total_cost:.4f}")`,
-  exercise:`<p>It's time to build it. Take the capstone code and <strong>run it locally</strong> (you'll need your Anthropic API key set as ANTHROPIC_API_KEY).</p>
-<p>If you can't run it, walk through the code and answer:</p>
-<ol style="margin:12px 0 12px 20px;color:var(--text2)">
-<li>What happens step by step when you run <code>orchestrator("AI agents")</code>?</li>
-<li>Which agents run in parallel? Which run sequentially?</li>
-<li>What happens if the review agent rejects the report?</li>
-<li>How is cost tracked across all agents?</li>
-<li>Paste your output or describe the full flow you observed.</li>
-</ol>`,
+  exercise:{
+    goal:"Build the complete capstone system: orchestrator + 3 parallel workers + review agent, with all production guards.",
+    prompts:[
+      {title:"Step 1 — Build the full system (paste into Claude)",text:"Build a complete multi-agent research system in Python using the Anthropic SDK:\n\nArchitecture:\n- ORCHESTRATOR: receives a research task, creates 3 sub-tasks\n- 3 SPECIALIST WORKERS running in PARALLEL (use asyncio):\n  - Tech Analyst: focuses on technology\n  - Market Analyst: focuses on business\n  - Trends Analyst: focuses on future outlook\n- REVIEW AGENT: checks the combined output, returns approved/rejected with feedback\n- If rejected, the orchestrator revises and re-submits (max 2 retries)\n\nRequirements:\n- Each agent has a detailed system prompt (5+ lines)\n- Production guards: max_steps, cost tracking, error handling\n- Structured logging with timestamps for every agent action\n- Total cost printed at the end\n\nTest with: 'The current state of large language model agents in 2025'\nShow me the complete, runnable code."},
+      {title:"Step 2 — Run and analyze (paste into Claude)",text:"Walk me through what happens step by step when the capstone system processes the task 'The current state of large language model agents':\n\n1. What does the orchestrator do first?\n2. What are the 3 sub-tasks it creates?\n3. Which agents run in parallel? Show the asyncio.gather() call.\n4. How are results combined?\n5. What does the review agent check? Show its system prompt.\n6. If the review fails, what exactly gets sent back for revision?\n7. What is the estimated total cost?\n\nBe specific — show actual API calls, message structures, and the JSON review verdict."},
+      {title:"Step 3 — Extend the architecture (paste into Claude)",text:"I want to extend the capstone system with these advanced features:\n\n1. Add a PLANNER agent that runs before the workers — it analyzes the task and decides how many workers are needed and what their specializations should be (dynamic, not hardcoded)\n2. Add TOOL USE to the workers — each specialist can call a search_web tool during its analysis\n3. Add a FEEDBACK LOOP where the review agent can send specific feedback to individual workers (not just a general revision)\n4. Add PERSISTENT MEMORY — save each completed research report to a database so future tasks can reference past research\n\nFor each extension, show the code changes needed and explain the architectural trade-offs (cost, latency, complexity, reliability)."}
+    ],
+    expected:"You should have a complete, production-grade multi-agent system that demonstrates mastery of all 8 previous pillars working together.",
+    checklist:["I built the full capstone system with orchestrator, parallel workers, and review agent","I can trace the entire execution flow from task input to final output","I understand the cost and latency implications of my architecture","I can extend the system with dynamic planning, tool use, feedback loops, and persistent memory"]
+  },
   quiz:[
     {q:"Why use parallel workers instead of sequential for the capstone?",opts:["It's always better to use parallel","The 3 research tasks are independent — no worker depends on another's output, so parallel saves time","Parallel uses fewer tokens","The API requires it"],correct:1},
     {q:"Why does the capstone include a review agent?",opts:["To increase the token count","To check the combined output for contradictions, gaps, and quality before returning it","Because every multi-agent system must have one","To translate the output"],correct:1},
@@ -1623,8 +1797,10 @@ let STATE = {
   xp:0,
   tabProgress:{},
   exerciseAnswers:{},
+  exerciseChecks:{},
   quizScores:{},
-  quizAnswers:{}
+  quizAnswers:{},
+  setupDone:false
 };
 
 function save(){localStorage.setItem('moa_state',JSON.stringify(STATE))}
@@ -1664,6 +1840,18 @@ function setName(){
   STATE.name=n;
   save();
   document.getElementById('onboarding').classList.add('hidden');
+  // Show setup guide on first time
+  if(!STATE.setupDone){
+    document.getElementById('setupGuide').classList.remove('hidden');
+  } else {
+    renderDashboard();
+  }
+}
+
+function completeSetup(){
+  STATE.setupDone=true;
+  save();
+  document.getElementById('setupGuide').classList.add('hidden');
   renderDashboard();
 }
 
@@ -1688,7 +1876,7 @@ function renderDashboard(){
 
   document.getElementById('statPillars').textContent=STATE.completedPillars.length;
   document.getElementById('statChecks').textContent=Object.values(STATE.quizScores).filter(s=>s>=3).length;
-  document.getElementById('statExercises').textContent=Object.keys(STATE.exerciseAnswers).length;
+  document.getElementById('statExercises').textContent=STATE.exerciseChecks?Object.values(STATE.exerciseChecks).filter(a=>a.length>=4).length:0;
 
   const grid=document.getElementById('pillarGrid');
   grid.innerHTML='';
@@ -1714,6 +1902,16 @@ function renderDashboard(){
 
   const mi=Math.min(STATE.completedPillars.length, MOTIVATIONS.length-1);
   document.getElementById('motivation').textContent=MOTIVATIONS[mi];
+
+  // Update continue button — show certificate option when all done
+  const contBtn=document.getElementById('continueBtn');
+  if(STATE.completedPillars.length===9){
+    contBtn.innerHTML='🏆 View Certificate & Graduation';
+    contBtn.onclick=()=>showGraduation();
+  } else {
+    contBtn.innerHTML='▶ Continue Training';
+    contBtn.onclick=()=>continueLearning();
+  }
 }
 
 function continueLearning(){
@@ -1778,15 +1976,39 @@ function showTab(pid,tabNum){
     <button class="unlock-btn" onclick="unlockTab(${pid},3)">I've read the code — give me the exercise →</button>`;
     setTimeout(()=>hljs.highlightAll(),50);
   } else if(tabNum===3){
-    const saved=STATE.exerciseAnswers[pid]||'';
-    const submitted=!!STATE.exerciseAnswers[pid];
+    const ex=p.exercise;
+    const checks=STATE.exerciseChecks?STATE.exerciseChecks[pid]||[]:{};
+    let promptsHtml='';
+    ex.prompts.forEach((pr,i)=>{
+      promptsHtml+=`<div class="prompt-card">
+        <div class="prompt-header">
+          <span class="prompt-step">${pr.title}</span>
+          <button class="copy-btn" onclick="copyPrompt(this)" style="position:relative;top:0;right:0">Copy prompt</button>
+        </div>
+        <pre class="prompt-text">${escapeHtml(pr.text)}</pre>
+      </div>`;
+    });
+    let checkHtml='';
+    ex.checklist.forEach((c,i)=>{
+      const checked=Array.isArray(checks)&&checks.includes(i);
+      checkHtml+=`<label class="check-item ${checked?'checked':''}">
+        <input type="checkbox" ${checked?'checked':''} onchange="toggleCheck(${pid},${i},this)">
+        <span>${c}</span>
+      </label>`;
+    });
+    const allChecked=Array.isArray(checks)&&checks.length>=ex.checklist.length;
     div.innerHTML=`<div class="lesson-content">
-      <h3>Hands-On Exercise</h3>
-      ${p.exercise}
-    </div>
-    <div class="exercise-area" style="margin-top:16px">
-      <textarea id="exerciseInput" placeholder="Type your solution here...">${escapeHtml(saved)}</textarea>
-      <button class="unlock-btn" style="margin-top:12px" onclick="submitExercise(${pid})" ${submitted?'':''}>${submitted?'✓ Submitted — Update':'Submit Exercise'}</button>
+      <h3>🛠 Hands-On Exercise</h3>
+      <div class="exercise-goal"><strong>Goal:</strong> ${ex.goal}</div>
+      <p style="margin:16px 0 8px;color:var(--text2)">Copy each prompt below and paste it into <strong>Claude</strong> (or the API). Work through them in order.</p>
+      ${promptsHtml}
+      <div class="expected-result">
+        <strong>✓ Expected Result:</strong> ${ex.expected}
+      </div>
+      <h3 style="margin-top:28px">Completion Checklist</h3>
+      <p style="color:var(--text2);margin-bottom:12px;font-size:.88rem">Check off each item as you complete it. All checks unlock the Knowledge Check.</p>
+      <div class="checklist-container">${checkHtml}</div>
+      ${allChecked?`<button class="unlock-btn" style="margin-top:16px" onclick="unlockTab(${pid},4)">All done — take the Knowledge Check →</button>`:`<div style="margin-top:16px;padding:12px 16px;background:var(--purple-dim);border-radius:var(--radius);color:var(--text2);font-size:.88rem">Complete all checklist items to unlock the Knowledge Check.</div>`}
     </div>`;
   } else if(tabNum===4){
     renderQuiz(pid,div);
@@ -1807,11 +2029,36 @@ function unlockTab(pid,tabNum){
 }
 
 function submitExercise(pid){
-  const val=document.getElementById('exerciseInput').value.trim();
-  if(!val)return;
-  STATE.exerciseAnswers[pid]=val;
   unlockTab(pid,4);
   save();
+}
+
+function toggleCheck(pid,idx,el){
+  if(!STATE.exerciseChecks)STATE.exerciseChecks={};
+  if(!STATE.exerciseChecks[pid])STATE.exerciseChecks[pid]=[];
+  const arr=STATE.exerciseChecks[pid];
+  if(el.checked){
+    if(!arr.includes(idx))arr.push(idx);
+  } else {
+    const i=arr.indexOf(idx);
+    if(i>-1)arr.splice(i,1);
+  }
+  // Update label style
+  el.parentElement.classList.toggle('checked',el.checked);
+  save();
+  // Check if all items are done
+  const p=PILLARS.find(x=>x.id===pid);
+  if(arr.length>=p.exercise.checklist.length){
+    showTab(pid,3); // Re-render to show the unlock button
+  }
+}
+
+function copyPrompt(btn){
+  const text=btn.parentElement.nextElementSibling.textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='Copied!';
+    setTimeout(()=>btn.textContent='Copy prompt',1500);
+  });
 }
 
 // ============================================================
@@ -1876,6 +2123,10 @@ function submitQuiz(pid){
       STATE.xp+=p.xp;
       // Fire confetti
       confetti({particleCount:150,spread:80,origin:{y:.6},colors:['#8b5cf6','#14b8a6','#22c55e']});
+      // Check if ALL 9 pillars are done → graduation!
+      if(STATE.completedPillars.length===9){
+        setTimeout(()=>showGraduation(),1200);
+      }
     }
   }
   save();
@@ -1887,6 +2138,172 @@ function retryQuiz(pid){
   delete STATE.quizAnswers[pid];
   save();
   showTab(pid,4);
+}
+
+// ============================================================
+// GRADUATION & CERTIFICATE
+// ============================================================
+const GRAD_QUOTES = [
+  "The expert in anything was once a beginner. You chose to begin — and you chose to finish.",
+  "You didn't just learn about agents. You learned how to learn. That's the real superpower.",
+  "Most people talk about AI. You built with it. That puts you ahead of 99%.",
+  "From Novice to Architect — not by watching, but by building. This is how mastery works.",
+  "The best way to predict the future of AI is to build it yourself. You just did."
+];
+
+function showGraduation(){
+  // Epic confetti burst
+  const end=Date.now()+2000;
+  const colors=['#8b5cf6','#14b8a6','#22c55e','#eab308','#a78bfa'];
+  (function frame(){
+    confetti({particleCount:4,angle:60,spread:55,origin:{x:0},colors});
+    confetti({particleCount:4,angle:120,spread:55,origin:{x:1},colors});
+    if(Date.now()<end)requestAnimationFrame(frame);
+  })();
+  // Fill modal
+  document.getElementById('gradName').textContent=STATE.name;
+  document.getElementById('gradXP').textContent=STATE.xp;
+  document.getElementById('gradQuote').textContent=GRAD_QUOTES[Math.floor(Math.random()*GRAD_QUOTES.length)];
+  document.getElementById('graduation').classList.remove('hidden');
+}
+
+function downloadCertificate(){
+  const canvas=document.getElementById('certCanvas');
+  const ctx=canvas.getContext('2d');
+  const W=1400,H=900;
+
+  // Background
+  ctx.fillStyle='#0a0a0f';
+  ctx.fillRect(0,0,W,H);
+
+  // Subtle grid
+  ctx.strokeStyle='rgba(139,92,246,0.06)';
+  ctx.lineWidth=1;
+  for(let x=0;x<W;x+=30){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(let y=0;y<H;y+=30){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+
+  // Border
+  const grd=ctx.createLinearGradient(0,0,W,H);
+  grd.addColorStop(0,'#8b5cf6');grd.addColorStop(0.5,'#14b8a6');grd.addColorStop(1,'#22c55e');
+  ctx.strokeStyle=grd;
+  ctx.lineWidth=3;
+  ctx.strokeRect(30,30,W-60,H-60);
+  // Inner border
+  ctx.strokeStyle='rgba(139,92,246,0.2)';
+  ctx.lineWidth=1;
+  ctx.strokeRect(45,45,W-90,H-90);
+
+  // Corner accents
+  const corners=[[50,50],[W-50,50],[50,H-50],[W-50,H-50]];
+  corners.forEach(([cx,cy])=>{
+    ctx.fillStyle='#8b5cf6';
+    ctx.beginPath();ctx.arc(cx,cy,4,0,Math.PI*2);ctx.fill();
+  });
+
+  // Stars
+  ctx.fillStyle='#eab308';
+  ctx.font='28px serif';
+  ctx.textAlign='center';
+  ctx.fillText('★   ★   ★',W/2,110);
+
+  // Title
+  ctx.font='bold 18px "Courier New", monospace';
+  ctx.fillStyle='#64748b';
+  ctx.letterSpacing='8px';
+  ctx.fillText('CERTIFICATE OF COMPLETION',W/2,155);
+
+  // Main title
+  ctx.font='bold 52px "Georgia", serif';
+  ctx.fillStyle='#e2e8f0';
+  ctx.fillText('Master of Agents',W/2,230);
+
+  // Subtitle
+  ctx.font='18px "Courier New", monospace';
+  ctx.fillStyle='#8b5cf6';
+  ctx.fillText('TRAINING PROGRAM',W/2,265);
+
+  // Divider line
+  const divGrd=ctx.createLinearGradient(W/2-200,0,W/2+200,0);
+  divGrd.addColorStop(0,'transparent');divGrd.addColorStop(0.5,'#8b5cf6');divGrd.addColorStop(1,'transparent');
+  ctx.strokeStyle=divGrd;ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(W/2-200,290);ctx.lineTo(W/2+200,290);ctx.stroke();
+
+  // "This certifies that"
+  ctx.font='16px "Georgia", serif';
+  ctx.fillStyle='#94a3b8';
+  ctx.fillText('This certifies that',W/2,330);
+
+  // Student name
+  ctx.font='bold 42px "Georgia", serif';
+  ctx.fillStyle='#14b8a6';
+  ctx.fillText(STATE.name,W/2,385);
+
+  // Description
+  ctx.font='16px "Georgia", serif';
+  ctx.fillStyle='#94a3b8';
+  ctx.fillText('has successfully completed all 9 pillars of the Master of Agents training,',W/2,430);
+  ctx.fillText('demonstrating proficiency in AI agent architecture, tool calling, multi-agent systems,',W/2,455);
+  ctx.fillText('and production-grade agent development with the Anthropic Claude API.',W/2,480);
+
+  // Pillars completed - two rows
+  const pillars=['Agents','Agent Loop','Tool Calling','Memory','Multi-Agent',
+                 'Advanced Patterns','Production','Claude Mastery','Capstone'];
+  ctx.font='bold 11px "Courier New", monospace';
+  const row1=pillars.slice(0,5);
+  const row2=pillars.slice(5);
+  const startX1=W/2-((row1.length-1)*130)/2;
+  const startX2=W/2-((row2.length-1)*130)/2;
+  row1.forEach((p,i)=>{
+    const x=startX1+i*130;
+    ctx.fillStyle='#22c55e';ctx.fillText('✓',x,530);
+    ctx.fillStyle='#64748b';ctx.fillText(p,x,548);
+  });
+  row2.forEach((p,i)=>{
+    const x=startX2+i*130;
+    ctx.fillStyle='#22c55e';ctx.fillText('✓',x,575);
+    ctx.fillStyle='#64748b';ctx.fillText(p,x,593);
+  });
+
+  // Stats row
+  const statsY=640;
+  ctx.font='bold 28px "Courier New", monospace';
+  ctx.fillStyle='#a78bfa';ctx.fillText(STATE.xp+' XP',W/2-200,statsY);
+  ctx.fillStyle='#14b8a6';ctx.fillText('Level 10',W/2,statsY);
+  ctx.fillStyle='#22c55e';ctx.fillText('9/9 Pillars',W/2+200,statsY);
+  ctx.font='11px "Courier New", monospace';
+  ctx.fillStyle='#64748b';
+  ctx.fillText('TOTAL EXPERIENCE',W/2-200,statsY+20);
+  ctx.fillText('RANK: ARCHITECT',W/2,statsY+20);
+  ctx.fillText('COMPLETED',W/2+200,statsY+20);
+
+  // Divider
+  ctx.strokeStyle=divGrd;ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(W/2-250,700);ctx.lineTo(W/2+250,700);ctx.stroke();
+
+  // Date
+  const today=new Date();
+  const dateStr=today.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  ctx.font='14px "Georgia", serif';
+  ctx.fillStyle='#94a3b8';
+  ctx.fillText('Completed on '+dateStr,W/2,735);
+
+  // Issued by
+  ctx.font='12px "Courier New", monospace';
+  ctx.fillStyle='#64748b';
+  ctx.fillText('Issued by Master of Agents Training Console v1.0',W/2,770);
+  ctx.fillText('Powered by Claude — Built by Anthropic',W/2,790);
+
+  // ID
+  const certId='MOA-'+Date.now().toString(36).toUpperCase();
+  ctx.font='10px "Courier New", monospace';
+  ctx.fillStyle='#334155';
+  ctx.fillText('Certificate ID: '+certId,W/2,830);
+
+  // Download
+  const link=document.createElement('a');
+  link.download='Master-of-Agents-Certificate-'+STATE.name.replace(/\s+/g,'-')+'.png';
+  link.href=canvas.toDataURL('image/png');
+  link.click();
 }
 
 // ============================================================
@@ -1973,7 +2390,7 @@ function checkReset(){
 function resetAll(){
   if(document.getElementById('resetInput').value!=='RESET')return;
   localStorage.removeItem('moa_state');
-  STATE={name:'',currentPillar:1,completedPillars:[],xp:0,tabProgress:{},exerciseAnswers:{},quizScores:{},quizAnswers:{}};
+  STATE={name:'',currentPillar:1,completedPillars:[],xp:0,tabProgress:{},exerciseAnswers:{},exerciseChecks:{},quizScores:{},quizAnswers:{},setupDone:false};
   document.getElementById('resetInput').value='';
   document.getElementById('resetBtn').classList.remove('enabled');
   document.getElementById('onboarding').classList.remove('hidden');
