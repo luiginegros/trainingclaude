@@ -381,6 +381,10 @@ print(msg.content[0].text)</pre>
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
 Dashboard
 </button>
+<button class="nav-btn" onclick="goTo('setup')">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+Setup Guide
+</button>
 <button class="nav-btn" onclick="goTo('map')">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><line x1="12" y1="7" x2="12" y2="10"/><line x1="12" y1="14" x2="12" y2="17"/></svg>
 Progress Map
@@ -433,6 +437,79 @@ Settings
 <div class="pillar-grid" id="pillarGrid"></div>
 <button class="continue-btn" id="continueBtn" onclick="continueLearning()">▶ Continue Training</button>
 <div class="motivation" id="motivation"></div>
+</div>
+
+<!-- SETUP GUIDE PAGE -->
+<div id="page-setup" class="page">
+<h2 style="font-weight:800;font-size:1.4rem;margin-bottom:8px">⚙️ Installation & Setup Guide</h2>
+<p style="color:var(--text2);margin-bottom:24px;font-size:.9rem">Everything you need to run the hands-on labs. Follow these 5 steps to get your environment ready.</p>
+
+<div class="lesson-content" style="max-width:640px">
+
+<div class="setup-step" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:22px">
+<div class="setup-step-num" style="width:32px;height:32px;border-radius:50%;background:var(--purple-dim);color:var(--purple2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;border:1px solid rgba(139,92,246,.3)">1</div>
+<div style="flex:1">
+<h3 style="margin-top:0">Get access to Claude</h3>
+<p>You'll need Claude to complete the interactive labs. Choose one:</p>
+<p><a href="https://claude.ai" target="_blank" style="color:var(--teal2)">claude.ai</a> — free tier available, paste prompts here<br>
+<a href="https://console.anthropic.com" target="_blank" style="color:var(--teal2)">Anthropic Console</a> — for API access and coding exercises</p>
+</div>
+</div>
+
+<div class="setup-step" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:22px">
+<div class="setup-step-num" style="width:32px;height:32px;border-radius:50%;background:var(--purple-dim);color:var(--purple2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;border:1px solid rgba(139,92,246,.3)">2</div>
+<div style="flex:1">
+<h3 style="margin-top:0">Install Python (3.10+)</h3>
+<p>The code examples use Python. Check if you have it:</p>
+<pre class="code-block" style="position:relative"><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>python3 --version</code></pre>
+<p>If not installed: <a href="https://www.python.org/downloads/" target="_blank" style="color:var(--teal2)">python.org/downloads</a></p>
+</div>
+</div>
+
+<div class="setup-step" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:22px">
+<div class="setup-step-num" style="width:32px;height:32px;border-radius:50%;background:var(--purple-dim);color:var(--purple2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;border:1px solid rgba(139,92,246,.3)">3</div>
+<div style="flex:1">
+<h3 style="margin-top:0">Install the Anthropic SDK</h3>
+<p>This is the Python library to call the Claude API:</p>
+<pre class="code-block" style="position:relative"><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>pip install anthropic</code></pre>
+</div>
+</div>
+
+<div class="setup-step" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:22px">
+<div class="setup-step-num" style="width:32px;height:32px;border-radius:50%;background:var(--purple-dim);color:var(--purple2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;border:1px solid rgba(139,92,246,.3)">4</div>
+<div style="flex:1">
+<h3 style="margin-top:0">Get your API key</h3>
+<p>Create one at <a href="https://console.anthropic.com/settings/keys" target="_blank" style="color:var(--teal2)">console.anthropic.com/settings/keys</a>, then set it:</p>
+<pre class="code-block" style="position:relative"><button class="copy-btn" onclick="copyCode(this)">Copy</button><code># Mac / Linux
+export ANTHROPIC_API_KEY="sk-ant-..."
+
+# Windows (PowerShell)
+$env:ANTHROPIC_API_KEY="sk-ant-..."</code></pre>
+</div>
+</div>
+
+<div class="setup-step" style="display:flex;gap:14px;align-items:flex-start;margin-bottom:22px">
+<div class="setup-step-num" style="width:32px;height:32px;border-radius:50%;background:var(--purple-dim);color:var(--purple2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;border:1px solid rgba(139,92,246,.3)">5</div>
+<div style="flex:1">
+<h3 style="margin-top:0">Verify it works</h3>
+<p>Run this quick test in Python:</p>
+<pre class="code-block" style="position:relative"><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>import anthropic
+client = anthropic.Anthropic()
+msg = client.messages.create(
+    model="claude-sonnet-4-20250514",
+    max_tokens=100,
+    messages=[{"role": "user", "content": "Say hello!"}]
+)
+print(msg.content[0].text)</code></pre>
+<p>If you see Claude's response, you're all set!</p>
+</div>
+</div>
+
+<div class="analogy" style="margin-top:24px">
+<strong>💡 Note:</strong> For the first few pillars, you only need claude.ai — just paste the lab prompts and follow along. The API + Python setup becomes essential from Pillar 2 onwards when you start building real agent loops.
+</div>
+
+</div>
 </div>
 
 <!-- PILLAR LEARNING -->
